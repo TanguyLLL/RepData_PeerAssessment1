@@ -86,6 +86,7 @@ tempoDat2<- summarise(tempoDat2, mean(steps, na.rm = TRUE))
 graph2<- ggplot(tempoDat2, aes(interval, `mean(steps, na.rm = TRUE)`, color = weekend))
 graph2 + geom_bar(stat = "identity") + facet_grid(.~ tempoDat2$weekend)
 
+
 ```
 
 
