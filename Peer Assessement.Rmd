@@ -64,6 +64,7 @@ which.max(actiDataInterval$meansteps)
 sum(is.na(actiData))
 
 #Devise a strategy for filling in all of the missing values in the dataset + Create a new dataset that is equal to the original dataset but with the missing data filled in
+# the chosen strategy is simple. I am replacing the NA values with the mean steps value.
 
 ```{r}
 meantot<- mean(actiData$steps, na.rm = T)
@@ -85,7 +86,6 @@ tempoDat2 <- group_by(actiData, interval, weekend)
 tempoDat2<- summarise(tempoDat2, mean(steps, na.rm = TRUE))
 graph2<- ggplot(tempoDat2, aes(interval, `mean(steps, na.rm = TRUE)`, color = weekend))
 graph2 + geom_bar(stat = "identity") + facet_grid(.~ tempoDat2$weekend)
-knit2html(input = "Peer Assessement.Rmd")
 ```
 
 

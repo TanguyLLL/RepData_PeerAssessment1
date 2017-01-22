@@ -206,7 +206,8 @@ which.max(actiDataInterval$meansteps)</code></pre>
 <pre class="r"><code>#Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NAs)
 sum(is.na(actiData))</code></pre>
 <pre><code>## [1] 2304</code></pre>
-<pre class="r"><code>#Devise a strategy for filling in all of the missing values in the dataset + Create a new dataset that is equal to the original dataset but with the missing data filled in</code></pre>
+<pre class="r"><code>#Devise a strategy for filling in all of the missing values in the dataset + Create a new dataset that is equal to the original dataset but with the missing data filled in
+# the chosen strategy is simple. I am replacing the NA values with the mean steps value.</code></pre>
 <pre class="r"><code>meantot&lt;- mean(actiData$steps, na.rm = T)
 actiData$newSteps &lt;- actiData$steps
 actiData$newSteps[is.na(actiData$newSteps)]&lt;- meantot</code></pre>
