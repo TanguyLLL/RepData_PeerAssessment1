@@ -1,6 +1,7 @@
 # Peer Assessement
 
-## This is where the enthusiastic student I am starts ro learn R markdown.
+## This is where the enthusiastic student I am starts ro learn R markdown.final version
+# to see the plots, please be sure to read this in the correct html editor !
 
 First bit of code changes the options so that the code will always be available 
 in the markdown document.
