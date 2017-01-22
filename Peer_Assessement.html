@@ -123,6 +123,18 @@ $(document).ready(function () {
 <h1>Peer Assessement</h1>
 <div id="this-is-where-the-enthusiastic-student-i-am-starts-ro-learn-r-markdown." class="section level3">
 <h3>This is where the enthusiastic student I am starts ro learn R markdown.</h3>
+<p>First bit of code changes the options so that the code will always be available in the markdown document.</p>
+<pre class="r"><code>library(knitr)</code></pre>
+<pre><code>## Warning: package 'knitr' was built under R version 3.3.2</code></pre>
+<pre class="r"><code>opts_chunk$set(echo = TRUE)</code></pre>
+<ol style="list-style-type: decimal">
+<li>Code for reading in the dataset and/or processing the data</li>
+</ol>
+<pre class="r"><code>actiData&lt;- read.csv(&quot;activity.csv&quot;)
+actiData$date&lt;- as.Date(actiData$date, &quot;%Y %m %d &quot;)</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Histogram of the total number of steps taken each day ```</li>
+</ol>
 </div>
 </div>
 

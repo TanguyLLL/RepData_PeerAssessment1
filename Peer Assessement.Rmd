@@ -2,3 +2,23 @@
 
 ### This is where the enthusiastic student I am starts ro learn R markdown.
 
+First bit of code changes the options so that the code will always be available 
+in the markdown document.
+
+```{r setOptions, echo=TRUE}
+library(knitr)
+opts_chunk$set(echo = TRUE)
+```
+
+1. Code for reading in the dataset and/or processing the data
+
+```{r}
+actiData<- read.csv("activity.csv")
+actiData$date<- as.Date(actiData$date, "%Y %m %d ")
+```
+
+2. Histogram of the total number of steps taken each day
+```{r}
+library(ggplot2)
+
+```
