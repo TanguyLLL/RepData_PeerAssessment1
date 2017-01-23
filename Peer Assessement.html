@@ -205,8 +205,6 @@ hr {
 
 <h2>This is where the enthusiastic student I am starts ro learn R markdown.final version</h2>
 
-<h1>to see the plots, please be sure to read this in the correct html editor !</h1>
-
 <p>First bit of code changes the options so that the code will always be available 
 in the markdown document.</p>
 
@@ -290,6 +288,16 @@ print(results, n = 20)
 
 <pre><code class="r">maxMean&lt;- which.max(results$meanS)
 maxMedian&lt;- which.max(results$medianS)
+maxMean
+</code></pre>
+
+<pre><code>## [1] 54
+</code></pre>
+
+<pre><code class="r">maxMedian
+</code></pre>
+
+<pre><code>## [1] 2
 </code></pre>
 
 <p>The maximum mean is <code>maxMean</code>. Du to a lot of &ldquo;0&rdquo;, most medians are &ldquo;0&rdquo; and the biggest median is <code>maxMedian</code></p>
@@ -322,6 +330,7 @@ sum(is.na(actiData))
 </code></pre>
 
 <pre><code class="r">#Devise a strategy for filling in all of the missing values in the dataset + Create a new dataset that is equal to the original dataset but with the missing data filled in
+# the chosen strategy is simple. I am replacing the NA values with the mean steps value.
 </code></pre>
 
 <pre><code class="r">meantot&lt;- mean(actiData$steps, na.rm = T)
@@ -348,17 +357,6 @@ graph2 + geom_bar(stat = &quot;identity&quot;) + facet_grid(.~ tempoDat2$weekend
 </code></pre>
 
 <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAABfVBMVEUAAAAAADoAAGYAOmYAOpAAZmYAZrYAv8QZGT8ZGWIZP4EZYp8aGhozMzM6AAA6ADo6AGY6OgA6Ojo6OmY6OpA6ZmY6ZrY6kJA6kLY6kNs/Pz8/P2I/gYE/gZ8/gb1NTU1NTW5NTY5NbqtNjshZWVliGRliGT9iPz9iP4FiYoFigb1in9lmAABmADpmAGZmOgBmOjpmOmZmOpBmZpBmZrZmkNtmtttmtv9uTU1uTY5uq+SBPxmBP2KBgZ+BvdmOTU2OTY6ObquOjsiOq+SOyP+QOgCQOjqQOmaQkDqQkLaQ29uQ2/+fYhmfYj+fYmKfgWKfn2Kf2dmrbk2r5P+2ZgC2Zjq2Zma2kDq2kGa2tma2/7a2//+9gT+9gWK9vYG92Z+92dnIjk3Ijm7IyP/I///Zn2LZ2Z/Z2b3Z2dnbkDrbkGbbtmbb25Db/7bb/9vb///kq27kq47k///r6+v4dm3/tmb/yI7/25D/29v/5Kv//7b//8j//9v//+T///9cAbMUAAAACXBIWXMAAAsSAAALEgHS3X78AAAS+0lEQVR4nO3diV8bxxXAccV12bYBJ22cNvSwHLtnjJ2jSXFom8MWTlvSIwanB0kbCCRVmhQwIygI79/ePXSspL1mZ3Y1O/t7n2S1ehpmH/NlpDVaDS2XaGS05l0AMZ8AvqEBfEMD+IZGfvh/1zesqB94+bCifuDlw4r6gZcPK+oHXj6sqB94+bCifuDlw4r6bYbfv1ZOv6XXP1v4R7c0dg98wQDeLPjPf/PBR9c++/m/frL4rU8+8zf71z7/dRn2uuuPLzzcW1z85gfe3veBT4mP3/rzL/75kjc59q8Fm/0f/vStEg6jf8bHFh7uPe3denvvA58S+z/67Z/+cuv9xcXFp4PN/uI36gEfW3i4d82D/+NbPNWnxmc/e+njH3wQjFGw2feePz8p4Tja648tfLDHjM8R79/aD14lF68FG3/Uni7hMPrrjyt8tHeL13hDwor6gZcPK+oHXj6sqB94+bCi/krg+2+3X9x78rB9fdPb3AR+zlEd/GHHPVzr3/P2TtbcnU6QOx7GeK8uGSvqrwTeF++c3W3feHy06du77tJSGUcn5hZJ8P13H3vgZ/d3B/D1nzFGVGL8jO+/s+ffnKwdAT//THXwZ2/uBS/0Jx1e4w3IVAe/026314IT+vFZvRFDAHy58HFhxBAAD7xExor6gZfPWFE/8PIZK+oHXj5jRf3Ay2esqB94+YwV9QMvn7GifuDlM1bUD7x8xor6gZfPWFE/8PIZK+oHXj5jRf3Ay2esqB94+Yzm+h1HY23Al5gBHngdfQJflwzwwOvoE/i6ZIAHXkefwNclAzzwOvoEvi4Z4IHX0SfwdckAD7yOPoGvSwZ44HX0CXxdMsADr6NP4OuSAR54HX0CX5cM8MDr6BP4umSAB15Hn8DXJQO8CjwxDMeZdwUaghkvn2nYjC/92wM+KQN8wQzwwOvoE3j5jNA+KMADn5gBHngdfQIvnwEeeOBzZ4AvmAEeeB19Ai+fAR544HNngC+YAR54HX0CL58BHnjgc2eAL5gBHngdfQIvnwEeeOBzZ4AvmAEeeB19Ai+fAR544HNngC+Y0QjvmwMvnwEeeOBzZ4AvmAEeeNU+gS/2zQAPPPC5M8AXzAAPvGqfwBf7ZoBvKrzIbqM/Azzwqn0CX+ybaQS8U6jnlAzwBTPA54Xvv91+ce/Jw/ZNN9gA3xT4w457uHay5u50gg3wTYH34qRztOmerAUb7+7SkpbDCaGlm/mFv6hl1sqWtVj4Mgm+/+7jXd98dwDPjA9vbJ/x/Xf23IkZD3x4Yzn82Zt7rstrfEzGcviddru9xll9TGYC3kluo+NY4/uVwceFlm8GeOCBz50BvmAGeOBV+wS+2DcDPPDA584AXzAD/LzhBfDAA587A3zBDPDAq/aZCO8ngQdex7HG94GvLbwzk5E4OvAFM8ADr9on8HKlA69ydOALZoAHXrVP4OVKB17l6MAXzAAPvGqfwMuVPoYXWW1KyAAPvGqfwMuVDrzK0YEvmAEeeNU+gZcrHXiVowNfMAM88Kp9Ai9XetPhHeCBlz868AUzwAOv2ifwcqUDr3J04AtmgAdetU/g5UoHXuXowBfMAK8CryN8+EoPqD0mljSNrl0aWec0ZknTrFVQqw9mvFymgTO+yDBNZ4AHHvj8GeALZoAHXrVP4OVKB17l6MAXzAAPvGqfwMuVDrzK0YEvmAEeeNU+gZcrHXiVowNfMAM88Kp9Ai9XOvAqRwe+YAZ44FX7BF6udOBVjg58wQzwc4YXwAMPfP4M8AUzwAOv2ifwcqUDr3J04AtmgE+D77a8WAY+PTMJHyGuK3wvNO+2VoFPyxSGd6YyMkcvEf789WHiw23gGwSfI4oM01QGeOCV+pHNAJ8If35n291aDW6AT8sAL1c68MBr6Ec2Azzwqn1aB7/SCuIS8OkZ2+BzRJFhmsoAbxz8YMZfPgA+PWMb/CC2FoBPz1gKf/osr/HpGUvhx2f1hx33ycP29U1vcxP4Y9vhRzN+p91x+/e8nZM1d6cDvO3ww9f4/qfejD+7277x+GjTt3fdpSUNBxO2rWwZWa8ya2VL05a2TDqr9+A98LP7uwN4Znx4E854J8zYM+Pd/w3lD4Pn95O1I+AnMtbBn17xL8HZuhQ5ufMnfaeM13ih2o9sBvhE+Iv11fPbf1gf/8Y2PKu/6ZZxVg+85NFLhPf/HddNu9QS+PDGSviUX9sBbzN86oQHPgjg5UoH3lT4Kt+PbxL8oImx8DmiyDBNZYAHXqkf2Yw+eMc2+LSL7YAfZ/TARxrkrx94+QzwyfCc3OXK2AfPjM+VAb7QwAFvHHyO0DBwwAOv1I9sphp4B3jgR18FfMPgh20GtybDb6320j5IA7wfwBcaOOCBV+pHNjN3eAd44I+BL9yPbAb4NPis0DBwjYcftAG+YD+yGeCBV+wT+EIDBzzwSv3IZhoCf3p19uT8Yj1hVerIWT0XYmRnLITPfEdew8A1E97RD+8Tby24Fw823F6rteCGWy/bXRjsPr/ip7utr72cOeMfbQCfmTEE3hM/f+XqwWnwn7u1Otz+Z9kd7D677c1kb3t6JRO+y1N9diYvvFMuvNtd7i0/2ugu+/O71VoOt6dXPL7B7tUD74fD/2zUFk/1Ovo0Bf706l9Xey/4z/TBJ13DrZdcHu3mhuepPk9GC7yjDn/x4Lnt0+dfO3BPn9nwzt8G26tf3d4Y7vrw/hP+SuaMX+GpPjtjCrzbvXxwse5/ynXy5K53+WC465/5dVtPfZuneh19GgOvHMBLZSyETzwLAD6SsRCe1/g8GQvhM0PDwAGvC15MhSp8jk9SqcSgxhqvauqES5o6kXujR0Z3nOCeM0xH7ka3SiF+PBHK8GmhYcY0YcZ7N1XMeOBrCT9BP294flefI2Mh/Pntja3VXiV/msQWeMcO+Dvb3eVq/u4c8BXA99JXLRzDXzzY6C0An5GxEN7tXf7vetoyxhoGDvjS4C/e85+wX/tqpXX54Nzf9JbDN3Gy4bNCw8ABX96M/2Ljb7/88o3uqjfVg03ve7dT32fnrF4qYy5874Xff/j3Vf+K2YVg02s9lQ/+PP0HBPjjkZiR8OevvPHFc9td/522YNPznvjTPgrJ27ISGZPhww+9+m+1LQcb7+Qu9Q8Q8LasRMZoeMngbVmJjJXwmaFh4IAHXqkf2YyF8Jrfjwc+NWMOvHoAL5ExB96ZClV47wwv8dd8GgYOeG3wk6/xyvBpoWHggG84vFDsRzYDfBp8b8F7ok/5JY6GgQPeQHj/w5ULcWsqAD/K5IB3agd/fmd7q6orcIAvH372QozuxNP5eMa/94/bG8z41IwSvBNtYxC822td/irtrVkNAwd8afDxV+CEe/5bMN7edxLgs0LDwAFf3oyPvQIn3Fvwbr29rQR4/+25tFWMNQwc8I5TFnzsFTjh3rIH/2gj8TXeXxAtbf1qDQOnD37QRc6vagJ87BU4g73UGR+c0NfmrL728EE/UvVnwMdegTPaW015jd9aHq6eBHwd4SVj6gqclGtwNAwc8AbCZ4aGgQPeRHhvyv/qQV3+HW8YvFM5/FQowHtn9eGaqMAnZsyBV4+J39WvclafmrESPpjx/Ds+NWMlfHBan3JZPfC2wmeFhoED3kD4Sn9zJ9T6MQPesQH+Yj389c3oNf6w4z552L4ZboC3Fn56su+0O+7JmrvTCTbAWww/cbFl/1Nvxh9tevbBxsssLWk42ODTPoU+8jPdk4ZypCOAGy1iObgX7EaTCStbOtGvD2/n8C2MIuliSw9+1zffHcDPb8ZHJ/cxM147/NTFltMzHvhjS+GnLrY8NOY1HviyX+MnLrY056weeIt+gQO8KfDnrw8TH1ZxIQbwpsB7T/TBBfjd5E/PaRg44M2DHyxwWM2SpsCbBJ8VGgZOF7wQZsI7tYSvcElT4CfgnbhjzdRfFnyVS5oCbxJ8hUuaAj8F7zgzx5qpvyz4Kpc0Bd4g+CqXNLUb3skNH375vGd8VmgYuKbAO7WCn/dZvZCFHz4AvBJ8lX9+DHiT4Cv882P2wA/A6gxf5Z8fA94g+Cr//BjwJsFnhYaBA95E+Co/Jg28OfCVfkwaeHPgK/2YNPDmwFf6MelYeAF8Wv1lwVf6MWngDYLPCg0DBzzws22AT6+/NPiteb9JA3xq/WXBz/0KHODT6y8L3n0052vugE+vvzT4ub8fD3xq/WXBV/BUL4CPh3fmOuPLf6rXAC+A1w1fwcWWwJsInxnqAwc88DFtGgvvAA98Sv3AAw98zqMDD7xK/cAXHDjgawmvFoOlTEXykqZJq5RO5MUgFXajvcqMCOAmljQdrErqTKxl6u8NHwp3nPFN5AsjTapf3bSqGT+Y6cozXjDjgQce+PSjAw980fqT4YP/gU/KZMIL4NPrBx74GsCP0ICPhXeOgQc+vX7ggW8QvBi1Ah544IFPrwd44CXrn8wAn3vg5ODF8XQAP6ofeOCBz1kP8MBL1j+ZAT73wAEPfCPhHeC1wAvggTcP3gF+Gn4EDrwDfJ3hJxiBn80A31R4MbgBHng5eAE88MDbCS+AT6kfeOCBz1kP8FXDC+CBzw8f+QEAflR/7eDFsVb4aHd56wG+PvAjVOCBBx54o+BnboDXBS+Atx9eTMBPGAvgLYMXwGfWXx38k4ft65ve5ibwx42C79/zNidr7k5nHvChKvCj+quDP7vbvvH4aNO3d92lJemuB2tY+utP+lJpK1sOHwz3o8tWDr9idEdMJysMX8idWKcy/saJLF6Z3NQN18I0b2VLD/zs/u4AvsCMEXln/PjB4J4tMz6rqbEzPrA/UoUXKfDjf6TVBz5V3A74w4570lF4jc+CFwJ4I+GDE3qFs3rgawo/FdLDVD68yFkP8LWC92/c6a8Avk7wAnjgi8IPwYEHvubwjqXw0+JS8AL46fqBBx74nPUAD3z++qciByPwWuBFHniRqx7ggc9f/1QAbxK8AB74rIGTrX8qgAce+NSMVfC5GIHPhh/zHU/Biwn42a8A3lp4AXxc/cAD3yx4EQsvag3vAA98Vv3AAw888MBnDpxs/RMBfP6BAz7fVwAPfGr9wANvI7wAHnjgo/XbBx/XBviZ+q2Dj20D/Ez9wANvAXxSG+Bn6gceeOArgneAlxi48uCnugMe+LSBk60/EsDLDFzV8EGfKQMnW38kqoafvAe85fBO5Hgx9c8NXjbEeJ3S6I0Yrkga9+CojUh+cKa7yPFKimCJUjfHWqaTS5rmaepGbiPHcyfulxE2zPhwqps34/M0PU6e8eP7wM8XPrcm8FXBh3eBBx544OsC7wAvDS/Khp9ABR544IEHHnjggQceeOCBBx544IF3RtTAy8GP6HXCz6KWBu8Abwy8Uy28Yz98hibwwGfCR26ABx544OXgHeCBLx9+9ucAeCPgs6WANwVeAA888MADbzm8AB544IEHHnjgy4TPJ6UZXuSDd6Yfj7A7wAMPfBPhgx3gGwDvAN8IeCcysBPw/gOuA7wsfDD6wDcVPr+UZngRwovgv3rDjwqsC7wwAT6c/sA3CV7UGT7430z40bPoaGjHQ1xQSjO8AF4Z/snD9s0ZeBGFF5GfALPgxcTAxcAPh9YdkBsF78wX/mTN3enkgh/cqwe8kwnvNBz+aNO3d92lpVEqGFOVpShztNHVXVwEI5yxFKU728bNv1ylxMqWqetdajKOjSz43QG84kL/881YUX/F8EfAzz8zD/iY13izBgX4cuBjzurNGhTgy4EfhxFDADzwEhkr6gdePmNF/cDLZ6yoH3j5jBX1Ay+fsaJ+4OUzVtQPvHzGivqBl89YUT/w8hkr6gdePmNF/cDLZ6yoH3j5jBX1Ay+fsaJ+4OUzVtQPvHzGivrnBj+KpewmxrWZ13HLqF9PAF+LNvqjADxhQwDf0AC+oQF8QwP4hoYs/Pg6+6SHr28GbZIbHnbccYuEZmGbtK76b7df3Mvsx7r6tYUs/PiTNbHRvzdsk9hwp92JtIhv5rfJ6Mob2sO1rH7sq19byMKPP0sXG2d32zceB22SGvY/9b7lcYvYZkGb7K5OOhn9WFi/tpCF300v0Hvs7H7QJrmhNyjjFgnNDjvZXfXffZzZj3X1awvNM951s3+Es2dM0Carq/47e9n9WFe/ttD8Gu//pGe9aB1mv0YGr4DpXZ29uedm92Nd/dpC/1l95mlq/rPitDY77XZ7rYyzerPr1xb8O76hAXxDA/iGBvANDeAbGsA3NOyEP716ENyev3aQ3qC5YSf8MBJ9gbcT/vTql8+vtBYu1luXD3qt1oJ7+tzLl3637LrdZbcb3Ad+3gWUEh78s9vnd7Y9X594a/X0mQ0f++LBhrcNH5h3jXMOa+GHyt6Eb7WWA+hHG6ff9R670npqA3j74RfChAfdW9hadXuXts9vA28/vPckf7G+GkCfv/rqtqfv9pjxtsOfrwxP7gLoLW/2n6+0vr6yCryd8ERmAN/QAL6hAXxDA/iGxv8BsRJ2zaommg4AAAAASUVORK5CYII=" alt="plot of chunk unnamed-chunk-9"/></p>
-
-<pre><code class="r">knit2html(input = &quot;Peer Assessement.Rmd&quot;)
-</code></pre>
-
-<pre><code>## 
-## 
-## processing file: Peer Assessement.Rmd
-</code></pre>
-
-<pre><code>## Error in parse_block(g[-1], g[1], params.src): duplicate label &#39;setOptions&#39;
-</code></pre>
 
 </body>
 

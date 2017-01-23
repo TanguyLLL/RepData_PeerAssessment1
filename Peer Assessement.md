@@ -1,7 +1,7 @@
 # Peer Assessement
 
 ## This is where the enthusiastic student I am starts ro learn R markdown.final version
-# to see the plots, please be sure to read this in the correct html editor !
+
 
 First bit of code changes the options so that the code will always be available 
 in the markdown document.
@@ -102,9 +102,23 @@ print(results, n = 20)
 ```r
 maxMean<- which.max(results$meanS)
 maxMedian<- which.max(results$medianS)
+maxMean
 ```
 
-The maximum mean is ` maxMean `. Du to a lot of "0", most medians are "0" and the biggest median is `maxMedian`
+```
+## [1] 54
+```
+
+```r
+maxMedian
+```
+
+```
+## [1] 2
+```
+The maximum mean is `maxMean`. Du to a lot of "0", most medians are "0" and the biggest median is `maxMedian`
+
+
 
 ### 4.Time series plot of the average number of steps taken
 
@@ -141,6 +155,7 @@ sum(is.na(actiData))
 
 ```r
 #Devise a strategy for filling in all of the missing values in the dataset + Create a new dataset that is equal to the original dataset but with the missing data filled in
+# the chosen strategy is simple. I am replacing the NA values with the mean steps value.
 ```
 
 ```r
@@ -169,20 +184,6 @@ graph2 + geom_bar(stat = "identity") + facet_grid(.~ tempoDat2$weekend)
 ```
 
 ![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9-1.png)
-
-```r
-knit2html(input = "Peer Assessement.Rmd")
-```
-
-```
-## 
-## 
-## processing file: Peer Assessement.Rmd
-```
-
-```
-## Error in parse_block(g[-1], g[1], params.src): duplicate label 'setOptions'
-```
 
 
 
