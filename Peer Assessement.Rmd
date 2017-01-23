@@ -1,7 +1,7 @@
 # Peer Assessement
 
 ## This is where the enthusiastic student I am starts ro learn R markdown.final version
-# to see the plots, please be sure to read this in the correct html editor !
+
 
 First bit of code changes the options so that the code will always be available 
 in the markdown document.
@@ -36,10 +36,12 @@ results <-summarise(actiDataDay, meanS = mean(steps, na.rm = TRUE), medianS = me
 print(results, n = 20)
 maxMean<- which.max(results$meanS)
 maxMedian<- which.max(results$medianS)
-
+maxMean
+maxMedian
 ```
+The maximum mean is `maxMean`. Du to a lot of "0", most medians are "0" and the biggest median is `maxMedian`
 
-The maximum mean is ` maxMean `. Du to a lot of "0", most medians are "0" and the biggest median is `maxMedian`
+
 
 ### 4.Time series plot of the average number of steps taken
 
